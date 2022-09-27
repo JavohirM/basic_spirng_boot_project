@@ -1,0 +1,53 @@
+#r2dbc:
+#  driver: "postgresql"
+#  host: "localhost"
+#  port: 5436
+#  database: "car_collateral"
+#  username: "postgres"
+#  password: "postgres"
+#  locale: "en_US"
+#
+
+spring:
+  mvc:
+    format:
+      date: yyyy-MM-dd
+      date-time: yyyy-MM-dd HH:mm:ss
+  servlet:
+    multipart:
+      max-file-size: 6000MB
+      max-request-size: 6000MB
+  r2dbc:
+    #    username: "bank981"
+    #    password: "bank981"
+    #    url: "r2dbc:oracle://192.168.70.11:1521/ncitest"
+    pool:
+      enabled: true
+      initial-size: 20
+      max-size: 50
+      max-idle-time: 30
+      validation-query: SELECT 1
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+r2dbc:
+  driver: "oracle"
+  host: "192.168.70.12"
+  port: 1521
+  database: "bank"
+  username: "dev_dt"
+  password: "TEST12345"
+  locale: "en_US"
+
+
+jwt:
+  password:
+    encode:
+      secret: davrbankSECRETlegalSECRET
+      iteration: 33
+      key-length: 256
+  jjwt:
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength
+    expiration: 108000
+
